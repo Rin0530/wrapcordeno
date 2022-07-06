@@ -3,7 +3,7 @@ import {
   serve,
   sign,
   validateRequest,
-  Bot,
+  CreateBotOptions,
   DiscordInteraction
 } from "../deps.ts";
 
@@ -27,8 +27,8 @@ import {
 
 import { CommandStructure } from "../types/mod.ts"
 
-export function start(commands:CommandStructure[], bot:Bot, publicKey:string){
-  setEnv(bot, publicKey)
+export function start(commands:CommandStructure[], botOptions:CreateBotOptions, publicKey:string){
+  setEnv(botOptions, publicKey)
   createCommands(commands)
   serve({
     "/": main,
