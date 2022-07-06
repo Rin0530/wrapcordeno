@@ -25,10 +25,10 @@ import {
   setEnv
 } from "./config.ts"
 
-import { CommandStructure } from "../types/mod.ts"
+import { botOptions, CommandStructure } from "../types/mod.ts"
 
-export function start(commands:CommandStructure[], botOptions:CreateBotOptions, publicKey:string){
-  setEnv(botOptions, publicKey)
+export function start(commands:CommandStructure[], options:botOptions){
+  setEnv(options.botOptions, options.publicKey)
   createCommands(commands)
   serve({
     "/": main,
