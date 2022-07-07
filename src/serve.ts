@@ -3,7 +3,7 @@ import {
   serve,
   sign,
   validateRequest,
-  CreateBotOptions,
+  InteractionResponse,
   DiscordInteraction
 } from "../deps.ts";
 
@@ -72,11 +72,13 @@ async function main(request: Request) {
 
   // Type 2 in a request is an ApplicationCommand interaction.
   // It implies that a user has issued a command.
-  if(isCommand(interaction))
-    onApplicationCommand(interaction);
+  if(isCommand(interaction)){
+    const resolve:InteractionResponse = onApplicationCommand(interaction)
+    return json(resolve);
+  }
 
   if(isMessage(interaction)) {
-    //const  resolve = onMessageComponent(interaction);
+    //const  resolve:InteractionResponse = onMessageComponent(interaction);
     //return json(resolve);
   }
 
