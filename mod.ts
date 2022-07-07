@@ -6,4 +6,4 @@ export * from "./src/caches/mod.ts"
 export * from "./src/interactions/mod.ts"
 
 export * from "https://deno.land/x/discordeno@13.0.0-rc45/types/mod.ts"
-export type { CreateBotOptions } from "https://deno.land/x/discordeno@13.0.0-rc45/mod.ts"
+export type { CreateBotOptions, InteractionResponse } from "https://deno.land/x/discordeno@13.0.0-rc45/mod.ts"
